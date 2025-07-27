@@ -29,6 +29,9 @@ class Opportunity(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        db_table = 'opportunity'
+
     def __str__(self):
         return self.name
 
@@ -57,6 +60,9 @@ class Activity(models.Model):
     assigned_to = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = 'activity'
 
     def __str__(self):
         return self.subject

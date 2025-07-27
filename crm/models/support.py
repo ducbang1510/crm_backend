@@ -35,5 +35,8 @@ class SupportTicket(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     resolved_at = models.DateTimeField(null=True, blank=True)
 
+    class Meta:
+        db_table = 'support_ticket'
+
     def __str__(self):
         return self.subject

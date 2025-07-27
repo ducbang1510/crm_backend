@@ -14,6 +14,9 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        db_table = 'product'
+
     def __str__(self):
         return self.name
 
@@ -31,6 +34,9 @@ class Contract(models.Model):
     notes = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = 'contract'
 
     def __str__(self):
         return "Contract ID %s - Created date: %s" % (str(self.id), self.created_at.strftime("%Y-%m-%d"))

@@ -14,6 +14,7 @@ class Customer(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
+        db_table = 'customer'
         ordering = ['-created_at']
 
     def __str__(self):
@@ -42,6 +43,7 @@ class ContactPerson(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='contacts')
 
     class Meta:
+        db_table = 'contact_person'
         verbose_name_plural = 'Contact People'
 
     def __str__(self):
