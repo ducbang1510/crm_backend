@@ -7,6 +7,6 @@ router.register(r'', CustomerViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('<int:customer_pk>/contacts/',
-         ContactPersonViewSet.as_view({'get': 'list', 'post': 'create'})),
+    path('<int:id>/contacts/',
+         ContactPersonViewSet.as_view({'post': 'create'})),
 ]

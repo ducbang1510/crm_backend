@@ -1,10 +1,12 @@
 from django import forms
 from django.contrib import admin
 from django.contrib.auth.models import Permission
+from django.urls import path
+from django.template.response import TemplateResponse
 
 from .models.customer import Customer, ContactPerson
-from .models.products import Product, Contract
-from .models.sales import Opportunity, Activity
+from .models.products import Product
+from .models.sales import Opportunity, Activity, Contract
 from .models.support import SupportTicket
 from .models.user import User
 

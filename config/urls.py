@@ -38,10 +38,9 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('crm/admin/', admin_site.urls),
+    # path('admin/', admin.site.urls),
+    path('', include('crm.urls')),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
-    path('api/v1/', include('crm.api.v1.urls')),  # Version 1
 
     # Swagger for APIs Document and debug tool
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),

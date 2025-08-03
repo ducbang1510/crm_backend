@@ -16,6 +16,8 @@ class Customer(models.Model):
     class Meta:
         db_table = 'customer'
         ordering = ['-created_at']
+        verbose_name = 'Customer'
+        verbose_name_plural = 'Customers'
 
     def __str__(self):
         return self.name
@@ -44,6 +46,7 @@ class ContactPerson(models.Model):
 
     class Meta:
         db_table = 'contact_person'
+        verbose_name = 'Contact Person'
         verbose_name_plural = 'Contact People'
 
     def __str__(self):

@@ -37,6 +37,8 @@ class SupportTicket(models.Model):
 
     class Meta:
         db_table = 'support_ticket'
+        verbose_name = 'Support Ticket'
+        verbose_name_plural = 'Support Tickets'
 
     def __str__(self):
         return self.subject
