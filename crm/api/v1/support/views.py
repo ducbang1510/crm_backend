@@ -8,7 +8,7 @@ from crm.api.v1.support.serializers import SupportTicketSerializer
 from crm.models import SupportTicket
 
 
-class SupportTicketViewSet(viewsets.ViewSet, generics.ListAPIView, generics.CreateAPIView):
+class SupportTicketViewSet(viewsets.ViewSet, generics.ListAPIView, generics.CreateAPIView, generics.UpdateAPIView):
     queryset = SupportTicket.objects.all()
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = SupportTicketSerializer

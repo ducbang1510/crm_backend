@@ -8,6 +8,4 @@ router.register(r'', CustomerViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('<int:id>/contacts/',
-         ContactPersonViewSet.as_view({'post': 'create'})),
 ]

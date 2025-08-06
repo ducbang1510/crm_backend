@@ -1,18 +1,18 @@
 from rest_framework import viewsets, permissions, status, generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.parsers import MultiPartParser
+from rest_framework.parsers import MultiPartParser, JSONParser
 from oauth2_provider.models import Application
 from rest_framework.decorators import action
 from oauth2_provider.contrib.rest_framework import TokenHasReadWriteScope
 from django.conf import settings
 from crm.models.user import User
-from .serializers import UserSerializer, ApplicationSerializer
+from .serializers import UserSerializer
 
 class UserViewSet(viewsets.ViewSet, generics.CreateAPIView):
     queryset = User.objects.filter(is_active=True)
     serializer_class = UserSerializer
-    parser_classes = [MultiPartParser, ]
+    parser_classes = [MultiPartParser, JSONParser]
 
     def get_permissions(self):
         if self.action in ['get_current_user', 'change_password']:
@@ -47,7 +47,6 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView):
 
         return Response({"Message": ["Errors."]}, status=status.HTTP_400_BAD_REQUEST)
 
-class ApplicationViewSet(viewsets.ModelViewSet):
-    permission_classes = [permissions.IsAuthenticated]
-    queryset = Application.objects.all()
-    serializer_class = ApplicationSerializer
+class AuthInfo(APIView):
+    def get(self, request):
+        return Response(settings.OAUTH2_INFO_BASIC, status=status.HTTP_200_OK)

@@ -6,8 +6,8 @@ from crm.api.v1.sales.views import OpportunityViewSet, ActivityViewSet, Contract
 
 router = DefaultRouter()
 router.register(r'opportunities', OpportunityViewSet, 'opportunity')
-router.register(r'activities', ActivityViewSet)
-router.register(r'contracts', ContractViewSet)
+router.register(r'activities', ActivityViewSet, 'activity')
+router.register(r'contracts', ContractViewSet, 'contract')
 
 urlpatterns = [
     path('', include(router.urls)),

@@ -127,6 +127,11 @@ OAUTH2_INFO = {
     "token_url": config('OAUTH_TOKEN_URL', default=''),
 }
 
+OAUTH2_INFO_BASIC = {
+    "client_id": config('OAUTH_CLIENT_ID_BASIC', default=''),
+    "client_secret": config('OAUTH_CLIENT_SECRET_BASIC', default='')
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases

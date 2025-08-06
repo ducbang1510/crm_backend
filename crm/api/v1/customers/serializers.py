@@ -11,4 +11,4 @@ class ContactPersonSerializer(ModelSerializer):
     class Meta:
         model = ContactPerson
         fields = ['id', 'first_name', 'last_name', 'email', 'phone',
-                  'gender', 'position', 'date_of_birth', 'is_primary', 'customer']
+                  'gender', 'position', 'date_of_birth', 'is_primary', 'customer_id']

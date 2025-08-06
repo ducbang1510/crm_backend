@@ -15,12 +15,7 @@ class UserSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = ["id", "first_name", "last_name",
-                  "username", "password", "email", "date_joined"]
+                  "username", "password", "email", "is_staff", "is_active", "date_joined"]
         extra_kwargs = {
             'password': {'write_only': 'true'}
         }
-
-class ApplicationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Application
-        fields = ['id', 'name', 'client_id', 'client_secret', 'client_type']

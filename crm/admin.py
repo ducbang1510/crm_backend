@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib import admin
 from django.contrib.auth.models import Permission
+# from django.contrib.auth.forms import UserChangeForm
 from django.urls import path
 from django.template.response import TemplateResponse
 
@@ -17,9 +18,26 @@ MANAGE_SALE_GROUP = "Sale Management"
 MANAGE_SUPPORT_GROUP = "Manage Support Ticket"
 
 
+class UserForm(forms.ModelForm):
+    # Custom Form to hash the password
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        password = self.cleaned_data.get("password")
+        if password:
+            user.set_password(password)
+        if commit:
+            user.save()
+        return user
+
+    class Meta:
+        model = User
+        fields = '__all__'
+
+
 class UserAdmin(admin.ModelAdmin):
     menu_title = 'Users'
     menu_group = MANAGE_USER_GROUP
+    form = UserForm
     list_per_page = 10
     list_display = ["id", "first_name", "last_name", "username", "email", "date_joined"]
     search_fields = ['first_name', 'last_name', 'username', 'email']
