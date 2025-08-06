@@ -13,6 +13,7 @@ A CRM Django-based REST API project secured with OAuth2 using Django OAuth Toolk
 ## 🛠️ Prerequisites
 
 - Python 3.10.+
+- MySQL 8+
 - pip
 - (Optional but recommended) `pip install virtualenv`
 - Required libraries in `requirements/development.txt`
